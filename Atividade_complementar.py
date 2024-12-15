@@ -23,11 +23,11 @@ while i == 0:
                 print(f"Filme reservado: {filme2_10}")
             elif escolha == 1:
                 print(f"Filme reservado: {filme1_10}")
-        if idade >= 10 and idade < 18:
-            filme1_18 = "Ted" .upper()
-            filme2_18 = "A cabana".upper()
-            filme3_18 = "Jogos Vorazes".upper()
-            escolha = int(input(f"Temos: \n1-{filme1_18}\n2-{filme2_18}\n3-{filme3_18}\n|>"))
+        if idade >= 10 and idade < 14:
+            filme1_14 = "Ted" .upper()
+            filme2_14 = "A cabana".upper()
+            filme3_14 = "Jogos Vorazes".upper()
+            escolha = int(input(f"Temos: \n1-{filme1_14}\n2-{filme2_14}\n3-{filme3_14}\n|>"))
             if escolha >= 3:
                 print("")
             else:
@@ -35,11 +35,28 @@ while i == 0:
                 break
             print(f'Cliente: {nome}\nIdade: {idade}')
             if escolha == 3:
-                print(f"Filme reservado: {filme3_18}")
+                print(f"Filme reservado: {filme3_14}")
             elif escolha == 2:
-                print(f"Filme reservado: {filme2_18}")
+                print(f"Filme reservado: {filme2_14}")
             elif escolha == 1:
-                print(f"Filme reservado: {filme1_18}")
+                print(f"Filme reservado: {filme1_14}")
+        if idade >= 14 and idade < 16:
+            filme1_16 = "Ted" .upper()
+            filme2_16 = "A cabana".upper()
+            filme3_16 = "Jogos Vorazes".upper()
+            escolha = int(input(f"Temos: \n1-{filme1_16}\n2-{filme2_16}\n3-{filme3_16}\n|>"))
+            if escolha >= 3:
+                print("")
+            else:
+                print("Digite um numero inteiro de 1 á 3 valido!!!")
+                break
+            print(f'Cliente: {nome}\nIdade: {idade}')
+            if escolha == 3:
+                print(f"Filme reservado: {filme3_16}")
+            elif escolha == 2:
+                print(f"Filme reservado: {filme2_16}")
+            elif escolha == 1:
+                print(f"Filme reservado: {filme1_16}")
         print(f"\nAté mais {nome}!!!")
         break
     else:
