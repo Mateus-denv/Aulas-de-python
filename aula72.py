@@ -1,9 +1,8 @@
 # Laço de repetição FOR
 texto = "oi"
+"""
 i = 0
 tamanho_texto = len(texto)
-
-"""
 # WHILE é utilizado qundo nos *não* sabemos quantos laços de repetiçoes seram utilados
 
     while i < tamanho_texto:
