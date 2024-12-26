@@ -25,5 +25,19 @@ while i == 0:
     for numero in CPF_cru:
         numero_int = int(numero)
         cpf.append(numero_int)
-        
+    
+    # Multiplicando  o valor de cada digito na lista por ordem
+    cpf = [1,0,3,6,1,7,9,5,5,9,9,]
+    digitos_multiplicados = []
+    maximo = 0
+    multiplicador = 10
+    for numero in cpf:
+        maximo += 1
+        if maximo < 10:
+            valor = numero*multiplicador
+            digitos_multiplicados.append(valor)
+            multiplicador -= 1
+        else:
+            break
+    print(*digitos_multiplicados)
     break
