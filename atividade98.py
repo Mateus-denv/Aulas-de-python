@@ -19,4 +19,11 @@ while i == 0:
         continue
     else:
         print("Digitos validos")
-    
+        
+    # Adicionando os numero convertido para int dentro de uma list
+    cpf = []
+    for numero in CPF_cru:
+        numero_int = int(numero)
+        cpf.append(numero_int)
+        
+    break
