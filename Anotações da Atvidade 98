@@ -3,27 +3,58 @@ Criando:  Validador de CPF
 Conteudo usado: Todos os anteriores a esse commit
 
 Calculo do primeiro dígito do CPF
-CPF: 746.824.890-70
-multiplicando cada um dos valores por uma
-Colete a soma dos 9 primeiros dígitos do CPF
-contagem regressiva começando de 10
+[x]CPF: 746.824.890-70
+[x]multiplicando cada um dos valores por uma
+    contagem regressiva começando de 10
 
-Ex.:  746.824.890-70 (746824890)
-   10  9  8  7  6  5  4  3  2
-*  7   4  6  8  2  4  8  9  0
-   70  36 48 56 12 20 32 27 0
+    Ex.:  746.824.890-70 (746824890)
+        10  9  8  7  6  5  4  3  2
+      * 7   4  6  8  2  4  8  9  0
+        70  36 48 56 12 20 32 27 0
+[x]Colete a soma dos 9 primeiros dígitos do CPF
+    Somar todos os resultados: 
+    70+36+48+56+12+20+32+27+0 = 301
 
-Somar todos os resultados: 
-70+36+48+56+12+20+32+27+0 = 301
-
-Multiplicar o resultado anterior por 10
+[x]Multiplicar o resultado anterior por 10
 301 * 10 = 3010
-Obter o resto da divisão da conta anterior por 11
+
+[x]Obter o resto da divisão da conta anterior por 11
 3010 % 11 = 7
-Se o resultado anterior for maior que 9:
+
+[x]Se o resultado anterior for maior que 9:
     resultado é 0
-contrário disso:
+[x]contrário disso:
     resultado é o valor da conta
 
 O primeiro dígito do CPF é 7
 """
+
+
+#
+"""
+[x]Calculo do segundo dígito do CPF
+CPF: 746.824.890-70
+[x]Colete a soma dos 9 primeiros dígitos do CPF,
+[x]MAIS O PRIMEIRO DIGITO,
+[x]multiplicando cada um dos valores por uma
+[x]contagem regressiva começando de 11
+
+Ex.:  746.824.890-70 (7468248907)
+   11 10  9  8  7  6  5  4  3  2
+*  7   4  6  8  2  4  8  9  0  7 <-- PRIMEIRO DIGITO
+   77 40 54 64 14 24 40 36  0 14
+
+[x]Somar todos os resultados:
+77+40+54+64+14+24+40+36+0+14 = 363
+[x]Multiplicar o resultado anterior por 10
+363 * 10 = 3630
+[x]Obter o resto da divisão da conta anterior por 11
+3630 % 11 = 0
+[x]Se o resultado anterior for maior que 9:
+    resultado é 0
+[x]contrário disso:
+    resultado é o valor da conta
+
+[x]O segundo dígito do CPF é 0
+"""
+# cpf = '36440847007'  # Esse CPF gera o primeiro dígito como 10 (0)
