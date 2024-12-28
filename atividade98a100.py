@@ -2,11 +2,11 @@ i = 0
 print("Bom dia!!")
 while i == 0:
     # CALCULO DO 1º DIGITO
-    CPF_cru = input("Digite o seu CPF abaixo \nSEM OS '.' E '-' |> ")
+    cpf_enviado_pelo_usuario = input("Digite o seu CPF abaixo \nSEM OS '.' E '-' |> ")
     digitos = 0
     
     # capturo os a quantidade de digitos e os numeros que foram digitados invalidos caso aja um cacter exibo a tela.
-    for confirmar in CPF_cru:
+    for confirmar in cpf_enviado_pelo_usuario:
         try:
             digitos += 1
         except ValueError:
@@ -22,16 +22,16 @@ while i == 0:
         print("Digitos validos")
         
     # Adicionando os numero convertido para int dentro de uma list
-    cpf_1 = []
-    for numero_1 in CPF_cru:
+    cpf_gerado_pelo_calculo = []
+    for numero_1 in cpf_enviado_pelo_usuario:
         numero_int = int(numero_1)
-        cpf_1.append(numero_int)
+        cpf_gerado_pelo_calculo.append(numero_int)
     
     # Multiplicando  o valor de cada digito na lista por ordem
     digitos_multiplicados_1 = []
     maximo_1 = 0
     multiplicador_1 = 10
-    for numero_1 in cpf_1:
+    for numero_1 in cpf_gerado_pelo_calculo:
         maximo_1 += 1
         if maximo_1 < 10:
             valor_1 = numero_1*multiplicador_1
@@ -57,20 +57,20 @@ while i == 0:
     
     # O subustindo o penutimo digito
     if resto_da_divisão_1 <= 9:
-        cpf_1.pop(9); cpf_1.insert(9,resto_da_divisão_1)
+        cpf_gerado_pelo_calculo.pop(9); cpf_gerado_pelo_calculo.insert(9,resto_da_divisão_1)
         print(f"O resto é |> {resto_da_divisão_1}")
-        print(*cpf_1)
+        print(*cpf_gerado_pelo_calculo)
     else:
-        cpf_1.pop(9); cpf_1.insert(9,0)
+        cpf_gerado_pelo_calculo.pop(9); cpf_gerado_pelo_calculo.insert(9,0)
         print(f"O resto é |> 0")
-        print(*cpf_1)
+        print(*cpf_gerado_pelo_calculo)
     
     # CALCULO DO 2º DIGITO
     # Multiplicando  o valor de cada digito na lista por ordem
     digitos_multiplicados_2 = []
     maximo_2 = 0
     multiplicador_2 = 11
-    for numero_2 in cpf_1:
+    for numero_2 in cpf_gerado_pelo_calculo:
         maximo_2 += 1
         if maximo_2 < 11:
             valor_2 = numero_2*multiplicador_2
@@ -96,11 +96,22 @@ while i == 0:
     
     # O subustindo o penutimo digito
     if resto_da_divisão_2 <= 9:
-        cpf_1.pop(10); cpf_1.insert(10,resto_da_divisão_2)
+        cpf_gerado_pelo_calculo.pop(10); cpf_gerado_pelo_calculo.insert(10,resto_da_divisão_2)
         print(f"O resto é |> {resto_da_divisão_2}")
-        print(*cpf_1)
+        print(*cpf_gerado_pelo_calculo)
     else:
-        cpf_1.pop(9); cpf_1.insert(10,0)
+        cpf_gerado_pelo_calculo.pop(9); cpf_gerado_pelo_calculo.insert(10,0)
         print(f"O resto é |> 0")
-        print(*cpf_1)
+        print(*cpf_gerado_pelo_calculo)
+        
+        
+    CPF_enviado_pelo_usuario = []
+    for numero in cpf_enviado_pelo_usuario:
+        CPF_enviado_pelo_usuario.append(int(numero)) 
+        
+    condicao = CPF_enviado_pelo_usuario == cpf_gerado_pelo_calculo
+    if condicao:
+        print("CPF VALIDO")
+    else:
+        print("CPF Invalido")
     break
