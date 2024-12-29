@@ -24,8 +24,13 @@ while i == 0:
     # Adicionando os numero convertido para int dentro de uma list
     cpf_gerado_pelo_calculo = []
     for numero_1 in cpf_enviado_pelo_usuario:
-        numero_int = int(numero_1)
-        cpf_gerado_pelo_calculo.append(numero_int)
+        try:
+            numero_int = int(numero_1)
+            cpf_gerado_pelo_calculo.append(numero_int)
+        except ValueError:
+            print("Por favor, utilize somente numeros")
+            break
+        
     
     # Multiplicando  o valor de cada digito na lista por ordem
     digitos_multiplicados_1 = []
