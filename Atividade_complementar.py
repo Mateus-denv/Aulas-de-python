@@ -77,5 +77,5 @@ while i == 0:
         print(f"\nAté mais {nome}!!!")
         break
     else:
-        print("Digite o nome legivel!!")
+        print("Digite o nome legivel!!") 
         continue
