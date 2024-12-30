@@ -1,13 +1,14 @@
 # Etapas 
 """
-1. CALCULO DO 1º DIGITO - Criar um While True
+1. CALCULO DO 1º DIGITO - 
+    1.0 Criar um While True
     1.1 Receber os dados do User convertenduos em int.
     1.2 Tratar os dados recibidos: 
         1.2.a Verificar se foram digitatos somente numeros, caso contrario o programa se repete.
         1.2.b Verificar quantidade de digitos é valida, caso contrario o programa se repete.
     1.3 Multiplicar cada valor por um contagem regrasiva começando do 10.
-    1.4 Coleta a soma dos resultados dos 9 primeiros digitos e soma-los.
-    1.5 Multiplicar a soma desses valores por 10.
+    1.4 Somar os resultados dessas multiplicações.
+    1.5 Multiplicar a soma obtida por 10.
     1.6 Obter o resto da multipicação por % 11.
     1.7 Foram ciaridas 2 lista, a 1º para armazena o valor que o usuario enviou, e a 2º para armazena o valor que o programa gerou.
     1.8 Se o resto for maior que 9 o penúltimo numero devera se torma 0, caso contrario permance o valor do resto.
@@ -18,12 +19,16 @@
     2.3 Multiplicar a soma desses valores por 10.
     2.4 Obter o resto da multipicação por % 11.
     2.5 Se o resto for maior que 9 o penúltimo numero devera se torma 0, caso contrario permance o valor do resto.
+    2.6 Verifico se o CPF que foi enviado é valido.
 """
+cpf_gerado_por_programa = []
+cpf_enviador_por_user = []
 # ETAPA 1.
 while True:
     # 1.1
+    cpf_enviador_por_user = input("Digite o seu CPF abaixo \nSOMENTE NUMEROS\n|>")
     try:
-        CPF_ENVIADO_POR_USER = int(input("Digite o seu CPF abaixo \nSOMENTE NUMEROS\n|>"))
+        CPF_ENVIADO_POR_USER = int(cpf_enviador_por_user)
     # 1.2
     except ValueError:
         # 1.2.a
@@ -31,16 +36,16 @@ while True:
         continue
     # 1.2.b
     cont = 0
-    for digitos in str(CPF_ENVIADO_POR_USER):
+    for digitos in cpf_enviador_por_user:
         cont += 1
-    condicao = "Quantidade de digitos validos" if cont == 11 else "Quantidade de digitos invalido"
+    condicao = "Quantidade de digitos enviados são validos" if cont == 11 else "Quantidade de digitos enviados são invalido"
     print(condicao)
     if cont != 11:
         continue
     
     # 1.3
     soma_dos_nove_primerio_digitos = 0
-    nove_primeiros_digitos = str(CPF_ENVIADO_POR_USER)[:9]
+    nove_primeiros_digitos = cpf_enviador_por_user[:9]
     multiplicador = 10
     for digitos in nove_primeiros_digitos:
         # 1.4
@@ -52,11 +57,8 @@ while True:
     resto_multip_por_10_1 = numeros_multip_por_10 % 11
     
     # 1.7
-    cpf_gerado_por_programa = []
-    cpf_enviador_por_user = []
-    for digito in str(CPF_ENVIADO_POR_USER):
+    for digito in cpf_enviador_por_user:
         cpf_gerado_por_programa.append(digito)
-        cpf_enviador_por_user.append(digito)
     # 1.8
     if resto_multip_por_10_1 > 9:
         print(f"\nEste digito [{resto_multip_por_10_1}] não é valido e será substituido para '0'.")
@@ -67,7 +69,7 @@ while True:
         cpf_gerado_por_programa.pop(9)
         cpf_gerado_por_programa.insert(9, str(resto_multip_por_10_1))
     print("\nEnviado por você: ",*cpf_enviador_por_user, sep="")
-    print("Gerado pelo programa: ",*cpf_gerado_por_programa,sep= "")
+    print("\nGerado pelo programa: ",*cpf_gerado_por_programa,sep= "")
     
     # 2.1 
     soma_dos_dez_primeiro_digitos = 0
@@ -78,9 +80,11 @@ while True:
         soma_dos_dez_primeiro_digitos += int(digito) * multiplicador
         multiplicador -=1
     # 2.3
-    numeros_multip_por_11 = soma_dos_dez_primeiro_digitos * 10
+    # numeros_multip_por_11 = soma_dos_dez_primeiro_digitos * 10
     # 2.4
-    resto_multip_por_10_2 = numeros_multip_por_11 % 11
+    # resto_multip_por_10_2 = numeros_multip_por_11 % 11
+    """ Simplificando a etapa 2.3 e 2.4:"""
+    resto_multip_por_10_2 = (soma_dos_dez_primeiro_digitos * 10) % 11
     # 2.5
     if resto_multip_por_10_2 > 9:
         print(f"\nEste digito [{resto_multip_por_10_2}] não é valido e será substituido para '0'.")
@@ -91,12 +95,12 @@ while True:
         cpf_gerado_por_programa.pop(10)
         cpf_gerado_por_programa.insert(10, str(resto_multip_por_10_2))
     print("\nEnviado por você: ",*cpf_enviador_por_user, sep="")
-    print("Gerado pelo programa: ",*cpf_gerado_por_programa,sep= "")
+    print("\nGerado pelo programa: ",*cpf_gerado_por_programa,sep= "")
     
-    
+    # 2.6
+    valido = 0
     for i, digito in enumerate(cpf_gerado_por_programa):
-        if cpf_enviador_por_user[i] == cpf_gerado_por_programa[i]:
-            if i == 11:  
-                print("Seu CPF É VALIDO")
-        
+        if cpf_enviador_por_user[i] == digito:
+            valido += 1
+    print("Este CPF é valido" if valido == 11 else "Este CPF é invalido")
     break
